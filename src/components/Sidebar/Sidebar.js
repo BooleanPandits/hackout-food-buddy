@@ -80,8 +80,8 @@ class Sidebar extends React.Component {
   }
   // creates the links that appear in the left menu / Sidebar
   createLinks = (routes) => {
-    return routes.map((prop, key) => {
-      return (
+    return routes.map((prop, key) =>
+      prop.layout == '/admin' ? (
         <NavItem key={key}>
           <NavLink
             to={prop.layout + prop.path}
@@ -93,8 +93,8 @@ class Sidebar extends React.Component {
             {prop.name}
           </NavLink>
         </NavItem>
-      )
-    })
+      ) : null
+    )
   }
   render() {
     const { bgColor, routes, logo } = this.props
@@ -138,21 +138,6 @@ class Sidebar extends React.Component {
           {/* User */}
           <Nav className="align-items-center d-md-none">
             <UncontrolledDropdown nav>
-              <DropdownToggle nav className="nav-link-icon">
-                <i className="ni ni-bell-55" />
-              </DropdownToggle>
-              <DropdownMenu
-                aria-labelledby="navbar-default_dropdown_1"
-                className="dropdown-menu-arrow"
-                right
-              >
-                <DropdownItem>Action</DropdownItem>
-                <DropdownItem>Another action</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Something else here</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-            <UncontrolledDropdown nav>
               <DropdownToggle nav>
                 <Media className="align-items-center">
                   <span className="avatar avatar-sm rounded-circle">
@@ -186,7 +171,7 @@ class Sidebar extends React.Component {
                 <DropdownItem divider />
                 <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
                   <i className="ni ni-user-run" />
-                  <span>Logout</span>
+                  <Link to="/auth/login">Logout</Link>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>

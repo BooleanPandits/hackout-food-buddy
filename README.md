@@ -1,5 +1,7 @@
 # Welcome to this non existent documentation
 
+## Getting Started
+
 ```sh
 git clone https://github.com/RoneelV/hackout-food-buddy.git
 
@@ -9,3 +11,5 @@ yarn
 
 yarn start
 ```
+
+## Note: Canteen Front-end is [here](https://github.com/BooleanPandits/CanteenFrontend)
